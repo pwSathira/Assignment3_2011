@@ -29,11 +29,18 @@ public class VehicleInfoSystem {
         System.out.print("Enter search key: ");
         String searchKey = sc.next();
         String result = searchKey(searchKey, m);
-        System.out.print("Result is: " + result);
+        System.out.print("Result is: " + result + "\n");
 
         System.out.print("Delete key: ");
         String deleteKey = sc.next();
         m = removeKey(deleteKey, m);
+
+        System.out.print("Insert Key: ");
+        String insKey = sc.next();
+        System.out.print("Insert Value: ");
+        String insVal = sc.next();
+        m = addKey(insKey, insVal, m);
+
         sc.close();
         return m;
     }
