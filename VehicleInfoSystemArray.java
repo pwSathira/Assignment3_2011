@@ -20,10 +20,11 @@ public class VehicleInfoSystemArray {
         String insVal = sc.next();
         pairList.get(0).add(insKey);
         pairList.get(1).add(insVal);
-        for (int i = 0; i < pairList.size(); i++)
-        {
-            System.out.println("Key: " + pairList.get(0).get(i));
-            System.out.println("Value: " + pairList.get(1).get(i));
+        for (String key : pairList.get(0)){
+            System.out.println(key);
+        }
+        for (String value : pairList.get(1)){
+            System.out.println(value);
         }
     }
     public static ArrayList<ArrayList<String>> delPairList(String delKey, ArrayList<ArrayList<String>> pairList) {
