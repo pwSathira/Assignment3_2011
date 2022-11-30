@@ -8,10 +8,8 @@ public class VehicleInfoSystem {
         HashMap<String, String> M = new HashMap<String, String>();
         M = getUserInput(M);
         for (String key : M.keySet()){
-            System.out.println(key);
-        }
-        for (String value : M.values()){
-            System.out.println(value);
+            String value = M.get(key);
+            System.out.println(key + " and " + value);
         }
     }
     public static HashMap<String, String> getUserInput(HashMap<String, String> m) {
@@ -47,6 +45,9 @@ public class VehicleInfoSystem {
     public static String searchKey(String key, HashMap<String, String> m) {
         String value = "";
         value = m.get(key);
+        if (value == null) {
+            return "search term does not exist!";
+        }
         return value;
     }
     public static HashMap<String, String> removeKey(String key, HashMap<String, String> m) {
