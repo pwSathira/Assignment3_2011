@@ -21,10 +21,8 @@ public class VehicleInfoSystemArray {
         pairList.get(0).add(insKey);
         pairList.get(1).add(insVal);
         for (String key : pairList.get(0)){
-            System.out.println(key);
-        }
-        for (String value : pairList.get(1)){
-            System.out.println(value);
+            String value = serPairList(key, pairList);
+            System.out.println(key + " and " + value);
         }
     }
     public static ArrayList<ArrayList<String>> delPairList(String delKey, ArrayList<ArrayList<String>> pairList) {
@@ -36,7 +34,7 @@ public class VehicleInfoSystemArray {
         return pairList;
     }
     public static String serPairList(String serKey, ArrayList<ArrayList<String>> pairList) {
-        String returnStr = "";
+        String returnStr = "search term does not exist!";
         if (pairList.get(0).contains(serKey)){
            returnStr = pairList.get(1).get(pairList.get(0).indexOf(serKey));
         } return returnStr;
