@@ -12,7 +12,7 @@ public class VISNode {
             if(userIn.charAt(0) == 'i'){
                 System.out.print("Enter potential obstacle: ");
                 String key = sc.next();
-                System.out.print("Enter the distance from vehicle: ");
+                System.out.print("Enter the distance from vehicle (in km): ");
                 String value = sc.next();
                 visNode.put(key, value);
             } else if (userIn.charAt(0) == 'd') {
@@ -144,7 +144,7 @@ public class VISNode {
     public void print(Node node){
         if (node != null){
             print(node.left);
-            System.out.println(node.entry.getKey() + ' ' + node.entry.getValue());
+            System.out.println(node.entry.getKey() + " is " + node.entry.getValue()+ "km away.");
             print(node.right);
         }
     }
