@@ -6,11 +6,38 @@ public class VehicleInfoSystem {
         //Key: Time in MS
         //Value: Speed at that time
         HashMap<String, String> M = new HashMap<String, String>();
-        M = getUserInput(M);
-        for (String key : M.keySet()){
-            String value = M.get(key);
-            System.out.println(key + " and " + value);
+        Scanner sc = new Scanner(System.in);
+        boolean complete = false;
+
+        while(!complete){
+            System.out.print("(HashMap) Enter (i)nsert, (d)elete, (s)earch, (p)rint or (q)uit: ");
+            String userIn = sc.next().toLowerCase();
+            if(userIn.charAt(0) == 'i'){
+                System.out.print("Enter potential obstacle: ");
+                String key = sc.next();
+                System.out.print("Enter the distance from vehicle (in km): ");
+                String value = sc.next();
+                M = addKey(key, value, M);
+            } else if (userIn.charAt(0) == 'd') {
+                System.out.print("Enter the delete term: ");
+                String key = sc.next();
+                M = removeKey(key, M);
+            } else if (userIn.charAt(0) == 's') {
+                System.out.print("Enter the search key: ");
+                String key = sc.next();
+                System.out.println("The result is : " + M.get(key));
+            } else if (userIn.charAt(0) == 'p') {
+            	for (String key : M.keySet()){
+                    String value = M.get(key);
+                    System.out.println(key + " is " + value + "km away.");
+                }
+            } else if (userIn.charAt(0) == 'q') {
+                complete = true;
+            } else {
+                System.out.println("Input not recognized try again!");
+            }
         }
+        sc.close();
     }
     public static HashMap<String, String> getUserInput(HashMap<String, String> m) {
         Scanner sc = new Scanner(System.in);
